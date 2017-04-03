@@ -538,8 +538,7 @@ namespace math {
     value_type th = ( thresh >= 0. ? thresh : detail::calc_threshold(A, S) );
     size_t nn = 0;
     for ( size_t j = 0; j < A.impl().cols(); j++ ) {
-      if ( j < S.size() )
-        if ( S[j] > th )
+      if ( j < S.size() && S[j] > th )
           continue;
       for ( size_t jj = 0; jj < A.impl().cols(); jj++ )
         nullsp(jj,nn) = V[jj][j];
